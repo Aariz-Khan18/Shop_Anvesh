@@ -3,16 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Gift Gallery | Datia</title>
     
-    <title>Amazing Gift Gallery | Best Gift Shop in Datia</title>
-    <meta name="description" content="Amazing Gift Gallery - The best gift shop in Datia, MP. Gifts, toys, decor, and personalized items for all occasions since 2007.">
-    <meta name="keywords" content="Gift shop Datia, Toys Datia, Personalized Gifts, Amazing Gift Gallery, Jitendra Shrivastava, Datia Shopping">
-    <meta name="author" content="Aariz Khan">
-    
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Amazing Gift Gallery | Datia">
-    <meta property="og:description" content="Find the perfect gift for your loved ones. Visit us at Gandhi Road, Datia.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=1200">
+    <meta name="description" content="Amazing Gift Gallery - Best gift shop in Datia, MP.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,124 +15,86 @@
         /* Color Variables */
         :root {
             --bg-color: #faf9f6; 
-            --text-color: #333;
-            --primary-color: #d4af37; /* Elegant Gold */
-            --secondary-bg: #fff;
-            --card-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            --transition: all 0.4s ease;
-            --star-color: #ffb400;
+            --text-color: #333333;
+            --primary-color: #d4af37; 
+            --secondary-bg: #ffffff;
+            --card-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
         }
 
+        /* Dark Theme Variables */
         [data-theme="dark"] {
             --bg-color: #121212;
             --text-color: #f1f1f1;
             --primary-color: #e6c258;
             --secondary-bg: #1e1e1e;
-            --card-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            --card-shadow: 0 4px 10px rgba(0,0,0,0.6);
         }
 
-        /* Base & Smooth Scrolling */
-        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
         body { background-color: var(--bg-color); color: var(--text-color); transition: var(--transition); line-height: 1.6; overflow-x: hidden; }
 
-        /* Navigation Bar */
         header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background-color: var(--secondary-bg); box-shadow: var(--card-shadow); position: sticky; top: 0; z-index: 1000; transition: var(--transition); }
-        .logo { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--primary-color); text-decoration: none; letter-spacing: 1px; }
+        .logo { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--primary-color); text-decoration: none; }
         
-        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; transition: var(--transition); }
-        nav ul li a { text-decoration: none; color: var(--text-color); font-weight: 600; font-size: 1rem; position: relative; transition: var(--transition); }
-        nav ul li a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--primary-color); transition: width 0.3s ease; }
-        nav ul li a:hover::after { width: 100%; }
+        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
+        nav ul li a { text-decoration: none; color: var(--text-color); font-weight: 600; transition: var(--transition); }
         nav ul li a:hover { color: var(--primary-color); }
-
-        .theme-toggle { background: transparent; color: var(--text-color); border: 1px solid var(--text-color); padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: 600; transition: var(--transition); }
-        .theme-toggle:hover { background: var(--text-color); color: var(--bg-color); }
-        .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--text-color); }
-
-        /* Hero Section */
-        .hero { position: relative; height: 80vh; width: 100%; overflow: hidden; background: #000; }
-        .carousel-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.5s ease-in-out, transform 5s linear; object-fit: cover; transform: scale(1); }
-        .carousel-slide.active { opacity: 1; transform: scale(1.05); }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; color: white; text-align: center; z-index: 10; padding: 0 20px; }
-        .hero-overlay h1 { font-family: 'Dancing Script', cursive; font-size: 4.5rem; color: var(--primary-color); margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .hero-overlay p { font-size: 1.3rem; font-weight: 300; letter-spacing: 1px; }
-
-        /* Scroll Animations */
-        .animate-on-scroll { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-        .animate-on-scroll.show { opacity: 1; transform: translateY(0); }
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.2s; }
-        .delay-3 { transition-delay: 0.3s; }
-
-        /* Section Titles */
-        .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { font-size: 2.5rem; color: var(--primary-color); text-transform: uppercase; letter-spacing: 2px; }
-        .section-title p { font-size: 1.1rem; opacity: 0.8; }
-
-        /* Products Section */
-        .products { padding: 80px 5%; background-color: var(--bg-color); }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .product-card { background: var(--secondary-bg); border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); text-align: center; transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: pointer; }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-        .product-card img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.5s ease; }
-        .product-card:hover img { transform: scale(1.1); }
-        .product-card h3 { padding: 20px; font-size: 1.3rem; color: var(--text-color); position: relative; z-index: 2; background: var(--secondary-bg); }
-
-        /* Google Reviews Section */
-        .testimonials { padding: 80px 5%; background-color: var(--secondary-bg); }
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; justify-content: center; }
-        .testimonial-card { background: var(--bg-color); padding: 30px; border-radius: 12px; box-shadow: var(--card-shadow); border-top: 4px solid var(--primary-color); transition: var(--transition); }
-        .testimonial-card:hover { transform: translateY(-5px); }
-        .stars { color: var(--star-color); font-size: 1.2rem; margin-bottom: 10px; }
-        .testimonial-card p { font-style: italic; font-size: 1rem; opacity: 0.9; margin-bottom: 15px; }
-        .reviewer { display: flex; align-items: center; gap: 15px; }
-        .reviewer-icon { width: 40px; height: 40px; background: var(--primary-color); color: #fff; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; font-size: 1.2rem; }
-        .reviewer-info h4 { font-size: 1rem; color: var(--text-color); }
-        .reviewer-info span { font-size: 0.8rem; opacity: 0.7; }
-
-        /* About Section */
-        .about { padding: 100px 5%; background-color: var(--bg-color); text-align: center; }
-        .about-content { max-width: 800px; margin: auto; }
-        .about-content p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 20px; line-height: 1.8; }
-
-        /* Contact & Info Grid */
-        .contact-section { padding: 80px 5%; background-color: var(--secondary-bg); }
-        .info-grid { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; }
-        .info-card { flex: 1; min-width: 320px; background: var(--bg-color); padding: 40px; border-radius: 15px; box-shadow: var(--card-shadow); text-align: center; transition: var(--transition); }
-        .info-card h3 { color: var(--primary-color); margin-bottom: 25px; font-size: 1.6rem; }
-        .info-card iframe { width: 100%; height: 250px; border: none; border-radius: 10px; margin-bottom: 15px; }
-        .qr-placeholder { width: 220px; height: 220px; object-fit: cover; border: 3px solid var(--primary-color); border-radius: 15px; padding: 10px; background: #fff; }
         
-        /* Buttons */
-        .btn { text-decoration: none; padding: 12px 25px; border-radius: 30px; font-weight: 600; color: #fff; transition: var(--transition); font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--text-color); }
+        .theme-toggle { background: transparent; color: var(--text-color); border: 1px solid var(--text-color); padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: var(--transition); }
+        .theme-toggle:hover { background: var(--text-color); color: var(--bg-color); }
+
+        .hero { position: relative; height: 75vh; width: 100%; overflow: hidden; background: #000; }
+        .carousel-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out; object-fit: cover; }
+        .carousel-slide.active { opacity: 1; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; color: white; text-align: center; z-index: 10; padding: 20px; }
+        .hero-overlay h1 { font-family: 'Dancing Script', cursive; font-size: 4rem; color: var(--primary-color); margin-bottom: 10px; }
+
+        section { padding: 80px 5%; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-size: 2.2rem; color: var(--primary-color); text-transform: uppercase; }
+
+        .products { background-color: var(--bg-color); transition: var(--transition); }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .product-card { background: var(--secondary-bg); border-radius: 10px; overflow: hidden; box-shadow: var(--card-shadow); text-align: center; transition: transform 0.3s, background-color 0.3s; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; }
+        .product-card h3 { padding: 15px; font-size: 1.2rem; color: var(--text-color); }
+
+        .reviews { background-color: var(--secondary-bg); transition: var(--transition); }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .review-card { background: var(--bg-color); padding: 25px; border-radius: 10px; box-shadow: var(--card-shadow); border-top: 3px solid var(--primary-color); transition: var(--transition); }
+        .review-card p { font-style: italic; margin: 10px 0; font-size: 0.95rem; }
+        .stars { color: #ffb400; font-size: 1.2rem; }
+        .reviewer-name { font-weight: bold; color: var(--primary-color); }
+
+        .about { background-color: var(--bg-color); text-align: center; transition: var(--transition); }
+        .about p { max-width: 800px; margin: auto; font-size: 1.1rem; }
+        
+        .contact { background-color: var(--secondary-bg); text-align: center; transition: var(--transition); }
+        .map-container iframe { width: 100%; max-width: 800px; height: 350px; border: none; border-radius: 10px; box-shadow: var(--card-shadow); }
+
+        footer { background-color: var(--bg-color); padding: 50px 5% 20px; text-align: center; border-top: 1px solid rgba(0,0,0,0.1); transition: var(--transition); }
+        .footer-content { max-width: 800px; margin: auto; }
+        .footer-content h3 { color: var(--primary-color); font-size: 1.8rem; margin-bottom: 10px; }
+        
+        .action-buttons { display: flex; justify-content: center; gap: 15px; margin: 25px 0; flex-wrap: wrap; }
+        .btn { text-decoration: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; color: #fff; font-size: 0.95rem; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .btn-whatsapp { background-color: #25D366; }
         .btn-call { background-color: var(--primary-color); }
-        .btn-map { background-color: #4285F4; width: 100%; }
-        .btn:hover { opacity: 0.9; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
+        .btn-call-alt { background-color: #aa8c2c; } 
+        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
 
-        /* Floating WhatsApp Button */
-        .float-whatsapp { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 0px 4px 10px rgba(0,0,0,0.3); z-index: 100; display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease; }
-        .float-whatsapp:hover { transform: scale(1.1) rotate(10deg); }
-        .float-whatsapp svg { width: 35px; height: 35px; fill: white; }
+        .float-wa { position: fixed; bottom: 20px; right: 20px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 9999; transition: 0.3s; }
+        .float-wa:hover { transform: scale(1.1); }
+        .float-wa svg { width: 35px; height: 35px; fill: white; }
 
-        /* Footer */
-        footer { background-color: var(--bg-color); padding: 60px 5% 20px; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); }
-        .footer-grid { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; text-align: left; max-width: 1200px; margin: 0 auto; margin-bottom: 40px; }
-        .footer-col { flex: 1; min-width: 250px; }
-        .footer-col h3 { color: var(--primary-color); font-family: 'Dancing Script', cursive; font-size: 2.2rem; margin-bottom: 20px; }
-        .footer-col h4 { font-size: 1.3rem; margin-bottom: 20px; color: var(--text-color); }
-        .footer-col p { margin-bottom: 10px; font-size: 1rem; opacity: 0.8; }
-        .action-buttons { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 25px; }
-        .copyright { text-align: center; font-size: 0.95rem; opacity: 0.6; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 25px; }
-
-        /* Mobile Adjustments */
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
-            nav ul { position: absolute; top: 100%; left: -100%; width: 100%; background: var(--secondary-bg); flex-direction: column; padding: 20px 0; box-shadow: var(--card-shadow); transition: left 0.4s ease; }
+            nav ul { position: absolute; top: 100%; left: -100%; width: 100%; background: var(--secondary-bg); flex-direction: column; padding: 20px 0; transition: 0.4s ease; box-shadow: var(--card-shadow); }
             nav ul.active { left: 0; }
-            .hero-overlay h1 { font-size: 3.2rem; }
-            .float-whatsapp { bottom: 20px; right: 20px; width: 55px; height: 55px; }
+            .hero-overlay h1 { font-size: 2.8rem; }
         }
     </style>
 </head>
@@ -147,165 +102,129 @@
 
     <header>
         <a href="#home" class="logo">Amazing Gift Gallery</a>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">☰</div>
         <nav>
-            <ul id="nav-links">
-                <li><a href="#home" onclick="closeMenu()">Home</a></li>
-                <li><a href="#products" onclick="closeMenu()">Products</a></li>
-                <li><a href="#reviews" onclick="closeMenu()">Reviews</a></li>
-                <li><a href="#about" onclick="closeMenu()">About Us</a></li>
-                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-                <li><button class="theme-toggle" onclick="toggleTheme()">🌗</button></li>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#about">About</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()">🌗 Theme</button></li>
             </ul>
         </nav>
     </header>
 
-    <section id="home" class="hero">
+    <section id="home" class="hero" style="padding: 0;">
         <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=1200" class="carousel-slide active" alt="Gifts">
         <img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=1200" class="carousel-slide" alt="Presents">
         <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=1200" class="carousel-slide" alt="Decor">
         <img src="https://images.unsplash.com/photo-1543168256-418811576931?w=1200" class="carousel-slide" alt="Celebration">
-        <img src="https://images.unsplash.com/photo-1520697268841-a1851b6894c2?w=1200" class="carousel-slide" alt="Boxes">
-        <img src="https://images.unsplash.com/photo-1614032686158-b880f7e82c18?w=1200" class="carousel-slide" alt="Showpiece">
         
         <div class="hero-overlay">
-            <div class="animate-on-scroll">
+            <div>
                 <h1>Amazing Gift Gallery</h1>
-                <p>Make Every Moment Special With Us</p>
+                <p>Curating Happiness Since 2007</p>
             </div>
         </div>
     </section>
 
     <section id="products" class="products">
-        <div class="section-title animate-on-scroll">
-            <h2>Our Collections</h2>
-            <p>Find the perfect gift for your loved ones from our wide variety of items.</p>
-        </div>
+        <div class="section-title"><h2>Our Collections</h2></div>
         <div class="product-grid">
-            <div class="product-card animate-on-scroll delay-1">
+            <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1581022295087-35e593704911?w=500" alt="Home Decor">
                 <h3>Home Decor & Showpieces</h3>
             </div>
-            <div class="product-card animate-on-scroll delay-2">
+            <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=500" alt="Soft Toys">
                 <h3>Toys & Soft Toys</h3>
             </div>
-            <div class="product-card animate-on-scroll delay-3">
+            <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=500" alt="Watches">
                 <h3>Watches & Perfumes</h3>
             </div>
-            <div class="product-card animate-on-scroll delay-1">
-                <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=500" alt="Greeting Cards">
-                <h3>Greeting Cards & Chocolates</h3>
-            </div>
-            <div class="product-card animate-on-scroll delay-2">
+            <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1545231027-637d2f6210f8?w=500" alt="Personalized Gifts">
-                <h3>Personalized Gifts & Mugs</h3>
-            </div>
-            <div class="product-card animate-on-scroll delay-3">
-                <img src="https://images.unsplash.com/photo-1512909006721-3d6018887383?w=500" alt="Festive Hampers">
-                <h3>Festive Hampers & Combos</h3>
+                <h3>Personalized Gifts</h3>
             </div>
         </div>
     </section>
 
-    <section id="reviews" class="testimonials">
-        <div class="section-title animate-on-scroll">
-            <h2>What Our Customers Say</h2>
-            <p>Rated highly on Google by the people of Datia</p>
-        </div>
-        <div class="testimonial-grid">
-            <div class="testimonial-card animate-on-scroll delay-1">
+    <section id="reviews" class="reviews">
+        <div class="section-title"><h2>Customer Reviews</h2></div>
+        <div class="review-grid">
+            <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p>"Excellent collection of gifts and toys. Jitendra uncle is very polite and always helps in finding the right gift for the occasion. Best shop in Datia!"</p>
-                <div class="reviewer">
-                    <div class="reviewer-icon">R</div>
-                    <div class="reviewer-info">
-                        <h4>Rahul Sharma</h4>
-                        <span>Local Guide · 12 Reviews</span>
-                    </div>
-                </div>
+                <p>"Excellent collection of gifts and toys. Jitendra uncle is very polite. Best shop in Datia!"</p>
+                <div class="reviewer-name">- Rahul Sharma, Datia</div>
             </div>
-            <div class="testimonial-card animate-on-scroll delay-2">
+            <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p>"I ordered a customized photo frame and coffee mug for my parents' anniversary. The finishing was top-class and delivery was on time. Highly recommended."</p>
-                <div class="reviewer">
-                    <div class="reviewer-icon">P</div>
-                    <div class="reviewer-info">
-                        <h4>Priya Tiwari</h4>
-                        <span>Datia · 4 Reviews</span>
-                    </div>
-                </div>
+                <p>"Ordered a customized frame. The finishing was top-class and delivery was on time."</p>
+                <div class="reviewer-name">- Priya Tiwari, Datia</div>
             </div>
-            <div class="testimonial-card animate-on-scroll delay-3">
+            <div class="review-card">
                 <div class="stars">★★★★☆</div>
-                <p>"Very good variety of showpieces and watches. Prices are reasonable compared to the market. Great place for festival shopping."</p>
-                <div class="reviewer">
-                    <div class="reviewer-icon">A</div>
-                    <div class="reviewer-info">
-                        <h4>Amit Yadav</h4>
-                        <span>Local Guide · 28 Reviews</span>
-                    </div>
-                </div>
+                <p>"Very good variety of showpieces. Prices are reasonable. Great place for shopping."</p>
+                <div class="reviewer-name">- Amit Yadav, Datia</div>
             </div>
         </div>
     </section>
 
     <section id="about" class="about">
-        <div class="section-title animate-on-scroll">
-            <h2>About Us</h2>
-            <p>Spreading smiles in Datia since 2007</p>
-        </div>
-        <div class="about-content animate-on-scroll delay-1">
-            <p>Welcome to <strong>Amazing Gift Gallery</strong>. Established in 2007 by Jitendra Shrivastava, we have grown to become Datia's most trusted destination for all gifting needs.</p>
-            <p>Whether you are looking for an elegant showpiece to decorate a home, a cute soft toy for a child, or a personalized gift to make someone's day, we have it all under one roof. Our mission is to provide high-quality, memorable items that help you express your love and gratitude perfectly.</p>
-        </div>
+        <div class="section-title"><h2>About Us</h2></div>
+        <p>Established in 2007 by <strong>Jitendra Shrivastava</strong>, Amazing Gift Gallery is Datia's most trusted destination for all gifting needs. From elegant showpieces to personalized presents, we provide high-quality items to help you express your love and gratitude perfectly.</p>
     </section>
 
-    <section id="contact" class="contact-section">
-        <div class="section-title animate-on-scroll">
-            <h2>Get In Touch</h2>
-            <p>Visit our store or reach out to us online</p>
-        </div>
-        <div class="info-grid">
-            <div class="info-card animate-on-scroll delay-1">
-                <h3>📍 Locate Our Shop</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.312910793134!2d78.4552458!3d25.670221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDQwJzEyLjgiTiA3OMKwMjcnMTguOSJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" loading="lazy"></iframe>
-                <a href="https://maps.google.com/?q=Amazing+Gift+Gallery+Datia+Madhya+Pradesh" target="_blank" class="btn btn-map">
-                    🗺️ Get Directions
-                </a>
-            </div>
-            <div class="info-card animate-on-scroll delay-2">
-                <h3>💳 Scan to Pay</h3>
-                <p style="opacity: 0.8; font-size: 1rem; margin-bottom: 10px;">Quick and secure payments via UPI</p>
-                <img src="https://via.placeholder.com/220x220?text=Shop+UPI+QR" alt="UPI QR Code" class="qr-placeholder">
-            </div>
+    <section id="contact" class="contact">
+        <div class="section-title"><h2>Locate Our Shop</h2></div>
+        <div class="map-container">
+            <iframe src="https://maps.app.goo.gl/3aW63qJkhLxxofPN9?g_st=ac" loading="lazy"></iframe>
         </div>
     </section>
 
     <footer>
-        <div class="footer-grid animate-on-scroll">
-            <div class="footer-col">
-                <h3>Amazing Gift Gallery</h3>
-                <p>Your one-stop shop for premium gifts, toys, decor, and festive hampers in Datia.</p>
+        <div class="footer-content">
+            <h3>Amazing Gift Gallery</h3>
+            <p><strong>Address:</strong> Chhoti Tigaliya, Gandhi Rd, near SBI, H O, Datia, MP 475661</p>
+            <p><strong>Owner:</strong> Jitendra Shrivastava</p>
+            <p><strong>Contact:</strong> +91 94254 82553 | +91 94798 04077</p>
+            
+            <div class="action-buttons">
+                <a href="https://wa.me/919425482553" target="_blank" class="btn btn-whatsapp">💬 WhatsApp Us</a>
+                <a href="tel:+919425482553" class="btn btn-call">📞 Call 94254 82553</a>
+                <a href="tel:+919479804077" class="btn btn-call-alt">📞 Call 94798 04077</a>
             </div>
-            <div class="footer-col">
-                <h4>Contact Info</h4>
-                <p><strong>Owner:</strong> Jitendra Shrivastava</p>
-                <p><strong>Address:</strong> Chhoti Tigaliya, Gandhi Rd, near SBI, H O, Datia, Madhya Pradesh 475661</p>
-                <p><strong>Phones:</strong> +91 94254 82553 | +91 94798 04077</p>
-                
-                <div class="action-buttons">
-                    <a href="https://wa.me/919425482553" target="_blank" class="btn btn-whatsapp">💬 WhatsApp</a>
-                    <a href="tel:+919425482553" class="btn btn-call">📞 Call Now</a>
-                </div>
-            </div>
-        </div>
-        <div class="copyright animate-on-scroll delay-1">
-            <p>© 2026 Amazing Gift Gallery | Designed with ❤️ by Aariz in Datia</p>
+
+            <p style="opacity: 0.6; font-size: 0.9rem; margin-top: 20px;">© 2026 Amazing Gift Gallery</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/919425482553?text=Hello,%20I%20saw%20your%20website%20and%20want%20to%20know%20more%20about..." class="float-whatsapp" target="_blank" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/919425482553" target="_blank" class="float-wa" aria-label="WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zM223.9 413.6c-33.1 0-65.5-8.9-94-25.7l-6.7-4-69.8 18.3L72 334.1l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 54.3 0 105.4 21.1 143.8 59.5 38.4 38.4 59.5 89.5 59.5 143.8 0 101.7-82.8 184.5-184.6 184.5z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Hero Slider
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        setInterval(() => {
+            slides[slideIndex].classList.remove('active');
+            slideIndex = (slideIndex + 1) % slides.length;
+            slides[slideIndex].classList.add('active');
+        }, 3000);
+
+        // Fixed Dark Theme Toggle Logic
+        function toggleTheme() {
+            const body = document.body;
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+            }
+        }
+    </script>
+</body>
+</html>
