@@ -12,48 +12,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
-        /* Modern Glassmorphism & Gradient Variables */
+        /* Color Variables */
         :root {
-            --bg-gradient: linear-gradient(135deg, #fdfbfb 0%, #f4eee6 100%); 
+            --bg-color: #faf9f6; 
             --text-color: #333333;
             --primary-color: #d4af37; 
-            --glass-bg: rgba(255, 255, 255, 0.65);
-            --glass-border: rgba(255, 255, 255, 0.4);
-            --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-            --transition: all 0.4s ease;
+            --secondary-bg: #ffffff;
+            --card-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
         }
 
-        /* Dark Theme Glassmorphism Variables */
+        /* Dark Theme Variables */
         [data-theme="dark"] {
-            --bg-gradient: linear-gradient(135deg, #121212 0%, #231f1a 100%);
+            --bg-color: #121212;
             --text-color: #f1f1f1;
             --primary-color: #e6c258;
-            --glass-bg: rgba(30, 30, 30, 0.65);
-            --glass-border: rgba(255, 255, 255, 0.05);
-            --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            --secondary-bg: #1e1e1e;
+            --card-shadow: 0 4px 10px rgba(0,0,0,0.6);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        
-        /* Fixed gradient background for smooth scrolling over it */
-        body { 
-            background: var(--bg-gradient); 
-            background-attachment: fixed;
-            color: var(--text-color); 
-            transition: var(--transition); 
-            line-height: 1.6; 
-            overflow-x: hidden; 
-        }
+        body { background-color: var(--bg-color); color: var(--text-color); transition: var(--transition); line-height: 1.6; overflow-x: hidden; }
 
-        /* Frosted Glass Header */
-        header { 
-            display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; 
-            background: var(--glass-bg); 
-            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--glass-border);
-            box-shadow: var(--card-shadow); 
-            position: sticky; top: 0; z-index: 1000; transition: var(--transition); 
-        }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background-color: var(--secondary-bg); box-shadow: var(--card-shadow); position: sticky; top: 0; z-index: 1000; transition: var(--transition); }
         .logo { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--primary-color); text-decoration: none; }
         
         nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
@@ -62,83 +43,67 @@
         
         .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--text-color); }
         .theme-toggle { background: transparent; color: var(--text-color); border: 1px solid var(--text-color); padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: var(--transition); }
-        .theme-toggle:hover { background: var(--text-color); color: transparent; /* Text matches bg natively */ }
+        .theme-toggle:hover { background: var(--text-color); color: var(--bg-color); }
 
         .hero { position: relative; height: 75vh; width: 100%; overflow: hidden; background: #000; }
         .carousel-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out; object-fit: cover; }
         .carousel-slide.active { opacity: 1; }
         .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; color: white; text-align: center; z-index: 10; padding: 20px; }
-        .hero-overlay h1 { font-family: 'Dancing Script', cursive; font-size: 4rem; color: var(--primary-color); margin-bottom: 10px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .hero-overlay h1 { font-family: 'Dancing Script', cursive; font-size: 4rem; color: var(--primary-color); margin-bottom: 10px; }
 
         section { padding: 80px 5%; }
         .section-title { text-align: center; margin-bottom: 40px; }
-        .section-title h2 { font-size: 2.2rem; color: var(--primary-color); text-transform: uppercase; letter-spacing: 1px; }
+        .section-title h2 { font-size: 2.2rem; color: var(--primary-color); text-transform: uppercase; }
 
-        /* Glassmorphism Product Cards */
+        .products { background-color: var(--bg-color); transition: var(--transition); }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .product-card { 
-            background: var(--glass-bg); 
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px; overflow: hidden; box-shadow: var(--card-shadow); 
-            text-align: center; transition: transform 0.4s ease, box-shadow 0.4s ease; 
-        }
-        .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
-        .product-card img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid var(--glass-border); }
-        .product-card h3 { padding: 18px; font-size: 1.2rem; color: var(--text-color); font-weight: 600; }
+        .product-card { background: var(--secondary-bg); border-radius: 10px; overflow: hidden; box-shadow: var(--card-shadow); text-align: center; transition: transform 0.3s, background-color 0.3s; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; }
+        .product-card h3 { padding: 15px; font-size: 1.2rem; color: var(--text-color); }
 
-        /* Glassmorphism Review Cards */
-        .reviews { min-height: 350px; }
+        .reviews { background-color: var(--secondary-bg); transition: var(--transition); min-height: 350px; }
         .review-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 25px; transition: opacity 0.5s ease-in-out; opacity: 1;
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px; 
+            transition: opacity 0.5s ease-in-out; 
+            opacity: 1;
         }
-        .review-grid.fade-out { opacity: 0; transform: scale(0.95); }
-        .review-card { 
-            background: var(--glass-bg); 
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            padding: 30px; border-radius: 15px; box-shadow: var(--card-shadow); 
-            border-top: 4px solid var(--primary-color); transition: var(--transition); 
-            display: flex; flex-direction: column; justify-content: space-between; 
-        }
-        .review-card p { font-style: italic; margin: 15px 0; font-size: 1rem; flex-grow: 1; }
-        .stars { color: #ffb400; font-size: 1.3rem; text-shadow: 0 2px 5px rgba(255, 180, 0, 0.3); }
-        .reviewer-name { font-weight: 600; color: var(--primary-color); margin-top: 10px; font-size: 1.1rem; }
+        .review-grid.fade-out { opacity: 0; }
+        .review-card { background: var(--bg-color); padding: 25px; border-radius: 10px; box-shadow: var(--card-shadow); border-top: 3px solid var(--primary-color); transition: var(--transition); display: flex; flex-direction: column; justify-content: space-between; }
+        .review-card p { font-style: italic; margin: 10px 0; font-size: 0.95rem; flex-grow: 1; }
+        .stars { color: #ffb400; font-size: 1.2rem; }
+        .reviewer-name { font-weight: bold; color: var(--primary-color); margin-top: 10px; }
 
-        .about { text-align: center; }
-        .about p { max-width: 800px; margin: auto; font-size: 1.15rem; line-height: 1.8; }
+        .about { background-color: var(--bg-color); text-align: center; transition: var(--transition); }
+        .about p { max-width: 800px; margin: auto; font-size: 1.1rem; }
         
-        .contact { text-align: center; }
+        .contact { background-color: var(--secondary-bg); text-align: center; transition: var(--transition); }
         .map-container { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 800px; margin: auto; }
-        .map-container iframe { width: 100%; height: 350px; border: none; border-radius: 15px; box-shadow: var(--card-shadow); border: 1px solid var(--glass-border); }
+        .map-container iframe { width: 100%; height: 350px; border: none; border-radius: 10px; box-shadow: var(--card-shadow); }
 
-        footer { 
-            background: var(--glass-bg); 
-            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            border-top: 1px solid var(--glass-border);
-            padding: 50px 5% 20px; text-align: center; transition: var(--transition); 
-        }
+        footer { background-color: var(--bg-color); padding: 50px 5% 20px; text-align: center; border-top: 1px solid rgba(0,0,0,0.1); transition: var(--transition); }
         .footer-content { max-width: 800px; margin: auto; }
-        .footer-content h3 { color: var(--primary-color); font-size: 2rem; margin-bottom: 10px; font-family: 'Dancing Script', cursive; }
+        .footer-content h3 { color: var(--primary-color); font-size: 1.8rem; margin-bottom: 10px; }
         
-        .action-buttons { display: flex; justify-content: center; gap: 15px; margin: 30px 0; flex-wrap: wrap; }
-        .btn { text-decoration: none; padding: 12px 25px; border-radius: 30px; font-weight: bold; color: #fff; font-size: 0.95rem; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
-        .btn-whatsapp { background: linear-gradient(135deg, #25D366, #1da851); }
-        .btn-call { background: linear-gradient(135deg, var(--primary-color), #b8962e); }
-        .btn-call-alt { background: linear-gradient(135deg, #aa8c2c, #8b7121); } 
-        .btn-map { background: linear-gradient(135deg, #4285F4, #2b65c2); width: 100%; max-width: 250px; margin-top: 15px; }
-        .btn:hover { opacity: 0.9; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+        .action-buttons { display: flex; justify-content: center; gap: 15px; margin: 25px 0; flex-wrap: wrap; }
+        .btn { text-decoration: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; color: #fff; font-size: 0.95rem; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-whatsapp { background-color: #25D366; }
+        .btn-call { background-color: var(--primary-color); }
+        .btn-call-alt { background-color: #aa8c2c; } 
+        .btn-map { background-color: #4285F4; width: 100%; max-width: 250px; margin-top: 15px; }
+        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
 
-        .float-wa { position: fixed; bottom: 25px; right: 25px; background: #25D366; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); z-index: 9999; transition: 0.3s; }
-        .float-wa:hover { transform: scale(1.1) rotate(5deg); }
-        .float-wa svg { width: 38px; height: 38px; fill: white; }
+        .float-wa { position: fixed; bottom: 20px; right: 20px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 9999; transition: 0.3s; }
+        .float-wa:hover { transform: scale(1.1); }
+        .float-wa svg { width: 35px; height: 35px; fill: white; }
 
-        /* --- Smooth Scroll Animation Classes --- */
+        /* --- Scroll Animation Classes --- */
         .hidden-scroll {
             opacity: 0;
-            transform: translateY(60px);
-            transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
         .show-scroll {
             opacity: 1;
@@ -147,7 +112,7 @@
 
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
-            nav ul { position: absolute; top: 100%; left: -100%; width: 100%; background: var(--glass-bg); backdrop-filter: blur(20px); flex-direction: column; padding: 30px 0; transition: 0.4s ease; box-shadow: var(--card-shadow); border-bottom: 1px solid var(--glass-border); }
+            nav ul { position: absolute; top: 100%; left: -100%; width: 100%; background: var(--secondary-bg); flex-direction: column; padding: 20px 0; transition: 0.4s ease; box-shadow: var(--card-shadow); }
             nav ul.active { left: 0; }
             .hero-overlay h1 { font-size: 2.8rem; }
         }
@@ -248,18 +213,20 @@
     </a>
 
     <script>
+        // Automatic Time-Based Theme Logic
         function setAutoTheme() {
             const currentHour = new Date().getHours();
             const body = document.body;
+            
+            // If time is between 7:00 PM (19) and 5:59 AM (5), apply dark theme
             if (currentHour >= 19 || currentHour < 6) {
                 body.setAttribute('data-theme', 'dark');
-                // Adjust theme toggle button style for dark mode if needed
-                document.querySelector('.theme-toggle').style.color = 'var(--text-color)';
             } else {
                 body.removeAttribute('data-theme');
             }
         }
 
+        // Manual Theme Toggle Logic
         function toggleTheme() {
             const body = document.body;
             if (body.getAttribute('data-theme') === 'dark') {
@@ -269,6 +236,7 @@
             }
         }
 
+        // Hero Slider Logic
         let slideIndex = 0;
         const slides = document.querySelectorAll('.carousel-slide');
         setInterval(() => {
@@ -277,6 +245,7 @@
             slides[slideIndex].classList.add('active');
         }, 3000);
 
+        // --- Rotating 3 Reviews Logic ---
         const reviewsData = [
             { name: "Mayank Kushwaha", stars: "★★★★★", text: "Best gift shop in Datia. Quality products and excellent behavior." },
             { name: "Abdul Habib Alam", stars: "★★★★★", text: "Amazing Gift Gallery truly lives up to its name. Best personalized gifts!" },
@@ -316,15 +285,18 @@
 
         function renderNextReviews() {
             const container = document.getElementById('dynamic-reviews');
+            
             container.classList.add('fade-out');
 
             setTimeout(() => {
                 container.innerHTML = ''; 
+
                 for (let i = 0; i < reviewsToShow; i++) {
                     if (currentReviewIndex >= reviewsData.length) {
                         currentReviewIndex = 0;
                         shuffleArray(reviewsData);
                     }
+
                     const review = reviewsData[currentReviewIndex];
                     const card = document.createElement('div');
                     card.className = 'review-card';
@@ -336,5 +308,34 @@
                     container.appendChild(card);
                     currentReviewIndex++;
                 }
+                
                 container.classList.remove('fade-out');
-            }, 
+            }, 500); 
+        }
+
+        // --- Scroll Animation Logic (Intersection Observer) ---
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show-scroll');
+                }
+            });
+        }, {
+            threshold: 0.1 // Triggers when 10% of the element is visible
+        });
+
+        // Initialize Everything on Page Load
+        window.onload = () => {
+            setAutoTheme(); // Sets theme based on current time
+            shuffleArray(reviewsData);
+            renderNextReviews();
+            setInterval(renderNextReviews, 5000); 
+
+            // Start observing scroll elements
+            const hiddenElements = document.querySelectorAll('.hidden-scroll');
+            hiddenElements.forEach((el) => scrollObserver.observe(el));
+        };
+    </script>
+</body>
+</html>
+
