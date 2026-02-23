@@ -58,7 +58,7 @@
         .products { background-color: var(--bg-color); transition: var(--transition); }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
         .product-card { background: var(--secondary-bg); border-radius: 10px; overflow: hidden; box-shadow: var(--card-shadow); text-align: center; transition: transform 0.3s, background-color 0.3s; }
-        .product-card:hover { transform: translateY(-5px); }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
         .product-card img { width: 100%; height: 200px; object-fit: cover; }
         .product-card h3 { padding: 15px; font-size: 1.2rem; color: var(--text-color); }
 
@@ -99,6 +99,17 @@
         .float-wa:hover { transform: scale(1.1); }
         .float-wa svg { width: 35px; height: 35px; fill: white; }
 
+        /* --- Scroll Animation Classes --- */
+        .hidden-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .show-scroll {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
             nav ul { position: absolute; top: 100%; left: -100%; width: 100%; background: var(--secondary-bg); flex-direction: column; padding: 20px 0; transition: 0.4s ease; box-shadow: var(--card-shadow); }
@@ -130,7 +141,7 @@
         <img src="https://images.unsplash.com/photo-1543168256-418811576931?w=1200" class="carousel-slide" alt="Celebration">
         
         <div class="hero-overlay">
-            <div>
+            <div class="hidden-scroll">
                 <h1>Amazing Gift Gallery</h1>
                 <p>Curating Happiness Since 2007</p>
             </div>
@@ -138,21 +149,21 @@
     </section>
 
     <section id="products" class="products">
-        <div class="section-title"><h2>Our Collections</h2></div>
+        <div class="section-title hidden-scroll"><h2>Our Collections</h2></div>
         <div class="product-grid">
-            <div class="product-card">
+            <div class="product-card hidden-scroll">
                 <img src="https://images.unsplash.com/photo-1581022295087-35e593704911?w=500" alt="Home Decor">
                 <h3>Home Decor & Showpieces</h3>
             </div>
-            <div class="product-card">
+            <div class="product-card hidden-scroll">
                 <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=500" alt="Soft Toys">
                 <h3>Toys & Soft Toys</h3>
             </div>
-            <div class="product-card">
+            <div class="product-card hidden-scroll">
                 <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=500" alt="Watches">
                 <h3>Watches & Perfumes</h3>
             </div>
-            <div class="product-card">
+            <div class="product-card hidden-scroll">
                 <img src="https://images.unsplash.com/photo-1545231027-637d2f6210f8?w=500" alt="Personalized Gifts">
                 <h3>Personalized Gifts</h3>
             </div>
@@ -160,25 +171,25 @@
     </section>
 
     <section id="reviews" class="reviews">
-        <div class="section-title"><h2>Customer Reviews</h2></div>
-        <div class="review-grid" id="dynamic-reviews">
+        <div class="section-title hidden-scroll"><h2>Customer Reviews</h2></div>
+        <div class="review-grid hidden-scroll" id="dynamic-reviews">
             </div>
     </section>
 
     <section id="about" class="about">
-        <div class="section-title"><h2>About Us</h2></div>
-        <p>Established in 2007 by <strong>Jitendra Shrivastava</strong>, Amazing Gift Gallery is Datia's most trusted destination for all gifting needs. From elegant showpieces to personalized presents, we provide high-quality items to help you express your love and gratitude perfectly.</p>
+        <div class="section-title hidden-scroll"><h2>About Us</h2></div>
+        <p class="hidden-scroll">Established in 2007 by <strong>Jitendra Shrivastava</strong>, Amazing Gift Gallery is Datia's most trusted destination for all gifting needs. From elegant showpieces to personalized presents, we provide high-quality items to help you express your love and gratitude perfectly.</p>
     </section>
 
     <section id="contact" class="contact">
-        <div class="section-title"><h2>Locate Our Shop</h2></div>
-        <div class="map-container">
+        <div class="section-title hidden-scroll"><h2>Locate Our Shop</h2></div>
+        <div class="map-container hidden-scroll">
             <iframe src="https://maps.google.com/maps?q=Amazing+Gift+Gallery,Datia,Madhya+Pradesh&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
             <a href="https://maps.google.com/?cid=1514430063289747772&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="btn btn-map">🗺️ Get Directions</a>
         </div>
     </section>
 
-    <footer>
+    <footer class="hidden-scroll">
         <div class="footer-content">
             <h3>Amazing Gift Gallery</h3>
             <p><strong>Address:</strong> Chhoti Tigaliya, Gandhi Rd, near SBI, H O, Datia, MP 475661</p>
@@ -195,23 +206,27 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/919425482553" target="_blank" class="float-wa" aria-label="WhatsApp">
+    <a href="https://wa.me/919425482553" target="_blank" class="float-wa hidden-scroll" aria-label="WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zM223.9 413.6c-33.1 0-65.5-8.9-94-25.7l-6.7-4-69.8 18.3L72 334.1l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 54.3 0 105.4 21.1 143.8 59.5 38.4 38.4 59.5 89.5 59.5 143.8 0 101.7-82.8 184.5-184.6 184.5z"/>
         </svg>
     </a>
 
     <script>
-        // Hero Slider Logic
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        setInterval(() => {
-            slides[slideIndex].classList.remove('active');
-            slideIndex = (slideIndex + 1) % slides.length;
-            slides[slideIndex].classList.add('active');
-        }, 3000);
+        // Automatic Time-Based Theme Logic
+        function setAutoTheme() {
+            const currentHour = new Date().getHours();
+            const body = document.body;
+            
+            // If time is between 7:00 PM (19) and 5:59 AM (5), apply dark theme
+            if (currentHour >= 19 || currentHour < 6) {
+                body.setAttribute('data-theme', 'dark');
+            } else {
+                body.removeAttribute('data-theme');
+            }
+        }
 
-        // Dark Theme Logic
+        // Manual Theme Toggle Logic
         function toggleTheme() {
             const body = document.body;
             if (body.getAttribute('data-theme') === 'dark') {
@@ -220,6 +235,15 @@
                 body.setAttribute('data-theme', 'dark');
             }
         }
+
+        // Hero Slider Logic
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        setInterval(() => {
+            slides[slideIndex].classList.remove('active');
+            slideIndex = (slideIndex + 1) % slides.length;
+            slides[slideIndex].classList.add('active');
+        }, 3000);
 
         // --- Rotating 3 Reviews Logic ---
         const reviewsData = [
@@ -262,15 +286,12 @@
         function renderNextReviews() {
             const container = document.getElementById('dynamic-reviews');
             
-            // 1. Fade out the current reviews
             container.classList.add('fade-out');
 
-            // 2. Wait for fade out, then swap content and fade back in
             setTimeout(() => {
                 container.innerHTML = ''; 
 
                 for (let i = 0; i < reviewsToShow; i++) {
-                    // Reset and reshuffle if we reached the end of the array
                     if (currentReviewIndex >= reviewsData.length) {
                         currentReviewIndex = 0;
                         shuffleArray(reviewsData);
@@ -288,18 +309,31 @@
                     currentReviewIndex++;
                 }
                 
-                // 3. Fade the new reviews back in
                 container.classList.remove('fade-out');
-            }, 500); // 500ms matches the CSS transition time
+            }, 500); 
         }
 
-        // Initialize first shuffle and load
+        // --- Scroll Animation Logic (Intersection Observer) ---
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show-scroll');
+                }
+            });
+        }, {
+            threshold: 0.1 // Triggers when 10% of the element is visible
+        });
+
+        // Initialize Everything on Page Load
         window.onload = () => {
+            setAutoTheme(); // Sets theme based on current time
             shuffleArray(reviewsData);
             renderNextReviews();
-            
-            // Change reviews every 5 seconds (5000ms)
             setInterval(renderNextReviews, 5000); 
+
+            // Start observing scroll elements
+            const hiddenElements = document.querySelectorAll('.hidden-scroll');
+            hiddenElements.forEach((el) => scrollObserver.observe(el));
         };
     </script>
 </body>
