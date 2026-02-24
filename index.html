@@ -11,112 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
-    <style>
-        /* Color Variables */
-        :root {
-            --bg-color: #faf9f6; 
-            --text-color: #333333;
-            --primary-color: #d4af37; 
-            --secondary-bg: #ffffff;
-            --card-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            --transition: all 0.3s ease;
-        }
-
-        /* Dark Theme Variables */
-        [data-theme="dark"] {
-            --bg-color: #121212;
-            --text-color: #f1f1f1;
-            --primary-color: #e6c258;
-            --secondary-bg: #1e1e1e;
-            --card-shadow: 0 4px 10px rgba(0,0,0,0.6);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--bg-color); color: var(--text-color); transition: var(--transition); line-height: 1.6; overflow-x: hidden; }
-
-        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background-color: var(--secondary-bg); box-shadow: var(--card-shadow); position: sticky; top: 0; z-index: 1000; transition: var(--transition); }
-        .logo { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--primary-color); text-decoration: none; }
-        
-        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
-        nav ul li a { text-decoration: none; color: var(--text-color); font-weight: 600; transition: var(--transition); }
-        nav ul li a:hover { color: var(--primary-color); }
-        
-        .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--text-color); }
-        .theme-toggle { background: transparent; color: var(--text-color); border: 1px solid var(--text-color); padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: var(--transition); }
-        .theme-toggle:hover { background: var(--text-color); color: var(--bg-color); }
-
-        .hero { position: relative; height: 75vh; width: 100%; overflow: hidden; background: #000; }
-        .carousel-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out; object-fit: cover; }
-        .carousel-slide.active { opacity: 1; }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; color: white; text-align: center; z-index: 10; padding: 20px; }
-        .hero-overlay h1 { font-family: 'Dancing Script', cursive; font-size: 4rem; color: var(--primary-color); margin-bottom: 10px; }
-
-        section { padding: 80px 5%; }
-        .section-title { text-align: center; margin-bottom: 40px; }
-        .section-title h2 { font-size: 2.2rem; color: var(--primary-color); text-transform: uppercase; }
-
-        .products { background-color: var(--bg-color); transition: var(--transition); }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .product-card { background: var(--secondary-bg); border-radius: 10px; overflow: hidden; box-shadow: var(--card-shadow); text-align: center; transition: transform 0.3s, background-color 0.3s; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
-        .product-card img { width: 100%; height: 200px; object-fit: cover; }
-        .product-card h3 { padding: 15px; font-size: 1.2rem; color: var(--text-color); }
-
-        .reviews { background-color: var(--secondary-bg); transition: var(--transition); min-height: 350px; }
-        .review-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 20px; 
-            transition: opacity 0.5s ease-in-out; 
-            opacity: 1;
-        }
-        .review-grid.fade-out { opacity: 0; }
-        .review-card { background: var(--bg-color); padding: 25px; border-radius: 10px; box-shadow: var(--card-shadow); border-top: 3px solid var(--primary-color); transition: var(--transition); display: flex; flex-direction: column; justify-content: space-between; }
-        .review-card p { font-style: italic; margin: 10px 0; font-size: 0.95rem; flex-grow: 1; }
-        .stars { color: #ffb400; font-size: 1.2rem; }
-        .reviewer-name { font-weight: bold; color: var(--primary-color); margin-top: 10px; }
-
-        .about { background-color: var(--bg-color); text-align: center; transition: var(--transition); }
-        .about p { max-width: 800px; margin: auto; font-size: 1.1rem; }
-        
-        .contact { background-color: var(--secondary-bg); text-align: center; transition: var(--transition); }
-        .map-container { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 800px; margin: auto; }
-        .map-container iframe { width: 100%; height: 350px; border: none; border-radius: 10px; box-shadow: var(--card-shadow); }
-
-        footer { background-color: var(--bg-color); padding: 50px 5% 20px; text-align: center; border-top: 1px solid rgba(0,0,0,0.1); transition: var(--transition); }
-        .footer-content { max-width: 800px; margin: auto; }
-        .footer-content h3 { color: var(--primary-color); font-size: 1.8rem; margin-bottom: 10px; }
-        
-        .action-buttons { display: flex; justify-content: center; gap: 15px; margin: 25px 0; flex-wrap: wrap; }
-        .btn { text-decoration: none; padding: 12px 20px; border-radius: 30px; font-weight: bold; color: #fff; font-size: 0.95rem; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
-        .btn-whatsapp { background-color: #25D366; }
-        .btn-call { background-color: var(--primary-color); }
-        .btn-call-alt { background-color: #aa8c2c; } 
-        .btn-map { background-color: #4285F4; width: 100%; max-width: 250px; margin-top: 15px; }
-        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
-
-        .float-wa { position: fixed; bottom: 20px; right: 20px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 9999; transition: 0.3s; }
-        .float-wa:hover { transform: scale(1.1); }
-        .float-wa svg { width: 35px; height: 35px; fill: white; }
-
-        /* --- Scroll Animation Classes --- */
-        .hidden-scroll {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .show-scroll {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            nav ul { position: absolute; top: 100%; left: -100%; width: 100%; background: var(--secondary-bg); flex-direction: column; padding: 20px 0; transition: 0.4s ease; box-shadow: var(--card-shadow); }
-            nav ul.active { left: 0; }
-            .hero-overlay h1 { font-size: 2.8rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -135,10 +30,12 @@
     </header>
 
     <section id="home" class="hero" style="padding: 0;">
-        <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=1200" class="carousel-slide active" alt="Gifts">
-        <img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=1200" class="carousel-slide" alt="Presents">
-        <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=1200" class="carousel-slide" alt="Decor">
-        <img src="https://images.unsplash.com/photo-1543168256-418811576931?w=1200" class="carousel-slide" alt="Celebration">
+        <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=1200&q=80" class="carousel-slide active" alt="Gifts">
+        <img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=1200&q=80" class="carousel-slide" alt="Presents">
+        <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?auto=format&fit=crop&w=1200&q=80" class="carousel-slide" alt="Decor">
+        <img src="https://images.unsplash.com/photo-1543168256-418811576931?auto=format&fit=crop&w=1200&q=80" class="carousel-slide" alt="Celebration">
+        <img src="https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=1200&q=80" class="carousel-slide" alt="Festive">
+        <img src="https://images.unsplash.com/photo-1576686034114-1188319e782d?auto=format&fit=crop&w=1200&q=80" class="carousel-slide" alt="Wrapping">
         
         <div class="hero-overlay">
             <div class="hidden-scroll">
@@ -150,30 +47,25 @@
 
     <section id="products" class="products">
         <div class="section-title hidden-scroll"><h2>Our Collections</h2></div>
-        <div class="product-grid">
-            <div class="product-card hidden-scroll">
-                <img src="https://images.unsplash.com/photo-1581022295087-35e593704911?w=500" alt="Home Decor">
-                <h3>Home Decor & Showpieces</h3>
-            </div>
-            <div class="product-card hidden-scroll">
-                <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=500" alt="Soft Toys">
-                <h3>Toys & Soft Toys</h3>
-            </div>
-            <div class="product-card hidden-scroll">
-                <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=500" alt="Watches">
-                <h3>Watches & Perfumes</h3>
-            </div>
-            <div class="product-card hidden-scroll">
-                <img src="https://images.unsplash.com/photo-1545231027-637d2f6210f8?w=500" alt="Personalized Gifts">
-                <h3>Personalized Gifts</h3>
-            </div>
+        
+        <div class="filter-container hidden-scroll">
+            <button class="filter-btn active" onclick="filterProducts('All', event)">All</button>
+            <button class="filter-btn" onclick="filterProducts('Decor', event)">Decor</button>
+            <button class="filter-btn" onclick="filterProducts('Toys', event)">Toys</button>
+            <button class="filter-btn" onclick="filterProducts('Watches', event)">Watches</button>
+            <button class="filter-btn" onclick="filterProducts('Personalized', event)">Personalized</button>
+        </div>
+
+        <div class="product-grid" id="dynamic-product-grid"></div>
+
+        <div class="load-more-container hidden-scroll" id="load-more-container">
+            <button id="load-more-btn" class="btn btn-call" onclick="loadMoreProducts()">➕ View More Products</button>
         </div>
     </section>
 
     <section id="reviews" class="reviews">
         <div class="section-title hidden-scroll"><h2>Customer Reviews</h2></div>
-        <div class="review-grid hidden-scroll" id="dynamic-reviews">
-            </div>
+        <div class="review-grid hidden-scroll" id="dynamic-reviews"></div>
     </section>
 
     <section id="about" class="about">
@@ -195,6 +87,7 @@
             <p><strong>Address:</strong> Chhoti Tigaliya, Gandhi Rd, near SBI, H O, Datia, MP 475661</p>
             <p><strong>Owner:</strong> Jitendra Shrivastava</p>
             <p><strong>Contact:</strong> +91 94254 82553 | +91 94798 04077</p>
+            <p style="color: var(--primary-color); font-weight: 600; margin-top: 5px;">🕒 Mon-Sat: 10:30 AM - 9:00 PM | Sun: 4:00 PM - 8:30 PM</p>
             
             <div class="action-buttons">
                 <a href="https://wa.me/919425482553" target="_blank" class="btn btn-whatsapp">💬 WhatsApp Us</a>
@@ -212,130 +105,6 @@
         </svg>
     </a>
 
-    <script>
-        // Automatic Time-Based Theme Logic
-        function setAutoTheme() {
-            const currentHour = new Date().getHours();
-            const body = document.body;
-            
-            // If time is between 7:00 PM (19) and 5:59 AM (5), apply dark theme
-            if (currentHour >= 19 || currentHour < 6) {
-                body.setAttribute('data-theme', 'dark');
-            } else {
-                body.removeAttribute('data-theme');
-            }
-        }
-
-        // Manual Theme Toggle Logic
-        function toggleTheme() {
-            const body = document.body;
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-            } else {
-                body.setAttribute('data-theme', 'dark');
-            }
-        }
-
-        // Hero Slider Logic
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        setInterval(() => {
-            slides[slideIndex].classList.remove('active');
-            slideIndex = (slideIndex + 1) % slides.length;
-            slides[slideIndex].classList.add('active');
-        }, 3000);
-
-        // --- Rotating 3 Reviews Logic ---
-        const reviewsData = [
-            { name: "Mayank Kushwaha", stars: "★★★★★", text: "Best gift shop in Datia. Quality products and excellent behavior." },
-            { name: "Abdul Habib Alam", stars: "★★★★★", text: "Amazing Gift Gallery truly lives up to its name. Best personalized gifts!" },
-            { name: "Nikki Tilwani", stars: "★★★★★", text: "Great collection of showpieces. Jitendra uncle is very polite." },
-            { name: "Devansh Shrivastava", stars: "★★★★½", text: "Very good variety of soft toys and watches. Pricing is reasonable." },
-            { name: "Vineet Kumar", stars: "★★★★☆", text: "Loved the photo frames! Delivered on time with great finishing." },
-            { name: "Pooja Sharma", stars: "★★★★☆", text: "Perfect place to buy birthday gifts. Highly satisfied." },
-            { name: "Rahul Patel", stars: "★★★★★", text: "Bought an anniversary gift for my parents. They absolutely loved it!" },
-            { name: "Sneha Gupta", stars: "★★★★☆", text: "Nice collection. The dark theme of this website is also cool!" },
-            { name: "Amit Singh", stars: "★★★★★", text: "Premium quality perfumes available here. Will visit again." },
-            { name: "Priya Desai", stars: "★★★★½", text: "I always come here for festive shopping. Highly recommended." },
-            { name: "Vikram Verma", stars: "★★★★★", text: "Very authentic and beautiful showpieces. 10/10." },
-            { name: "Anjali Joshi", stars: "★★★★☆", text: "Affordable and best. Good customer service by the owner." },
-            { name: "Rohan Mehta", stars: "★★★★★", text: "Customized mugs and cushions are of top quality." },
-            { name: "Kavita Tiwari", stars: "★★★★½", text: "Best place in Datia for unique gifts." },
-            { name: "Suresh Reddy", stars: "★★★★★", text: "Got a wall clock from here. Working perfectly and looks elegant." },
-            { name: "Neha Jain", stars: "★★★★☆", text: "Lots of options to choose from. Very happy with my purchase." },
-            { name: "Manish Yadav", stars: "★★★★★", text: "Jitendra sir is very helpful in suggesting the best gifts." },
-            { name: "Aditya Rao", stars: "★★★★½", text: "Good experience overall. Nice ambiance in the shop." },
-            { name: "Kiran Chakraborty", stars: "★★★★★", text: "Soft toys are very fluffy and nice. My daughter loved the teddy." },
-            { name: "Sameer Khan", stars: "★★★★☆", text: "Bought a wallet for my brother. Genuine quality." },
-            { name: "Ayesha Siddiqui", stars: "★★★★★", text: "They packed the gift beautifully. No need to go anywhere else." },
-            { name: "Deepak Bhatia", stars: "★★★★½", text: "The collection of wind chimes and idols is mesmerizing." },
-            { name: "Sunita Agarwal", stars: "★★★★★", text: "Best rates in the market. Must visit for weddings." },
-            { name: "Vishal Chaudhary", stars: "★★★★☆", text: "Friendly staff and quick service." }
-        ];
-
-        let currentReviewIndex = 0;
-        const reviewsToShow = 3;
-
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
-
-        function renderNextReviews() {
-            const container = document.getElementById('dynamic-reviews');
-            
-            container.classList.add('fade-out');
-
-            setTimeout(() => {
-                container.innerHTML = ''; 
-
-                for (let i = 0; i < reviewsToShow; i++) {
-                    if (currentReviewIndex >= reviewsData.length) {
-                        currentReviewIndex = 0;
-                        shuffleArray(reviewsData);
-                    }
-
-                    const review = reviewsData[currentReviewIndex];
-                    const card = document.createElement('div');
-                    card.className = 'review-card';
-                    card.innerHTML = `
-                        <div class="stars">${review.stars}</div>
-                        <p>"${review.text}"</p>
-                        <div class="reviewer-name">- ${review.name}</div>
-                    `;
-                    container.appendChild(card);
-                    currentReviewIndex++;
-                }
-                
-                container.classList.remove('fade-out');
-            }, 500); 
-        }
-
-        // --- Scroll Animation Logic (Intersection Observer) ---
-        const scrollObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show-scroll');
-                }
-            });
-        }, {
-            threshold: 0.1 // Triggers when 10% of the element is visible
-        });
-
-        // Initialize Everything on Page Load
-        window.onload = () => {
-            setAutoTheme(); // Sets theme based on current time
-            shuffleArray(reviewsData);
-            renderNextReviews();
-            setInterval(renderNextReviews, 5000); 
-
-            // Start observing scroll elements
-            const hiddenElements = document.querySelectorAll('.hidden-scroll');
-            hiddenElements.forEach((el) => scrollObserver.observe(el));
-        };
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
-
