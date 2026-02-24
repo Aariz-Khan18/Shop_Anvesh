@@ -46,7 +46,7 @@ const productsData = [
     { category: "Watches", name: "Smart Fitness Watch", img: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=500&q=80" },
     { category: "Personalized", name: "Custom Name Chain", img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=500&q=80" },
     { category: "Decor", name: "Abstract Showpiece", img: "https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=500&q=80" },
-    { category: "Toys", name: "Action Figures", img: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=500&q=80" },
+    { category: "Toys", name: "Action Figures", img: "https://images.unsplash.com/photo-1524481905007-ea072534b820?q=80&w=1170?auto=format&fit=crop&w=500&q=80Hx8fGVufDB8fHx8fA%3D%3D" },
     { category: "Decor", name: "Artificial Plant", img: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=500&q=80" },
     { category: "Watches", name: "Couple Watches Combo", img: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?auto=format&fit=crop&w=500&q=80" },
     { category: "Personalized", name: "Resin Art Clock", img: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=500&q=80" },
