@@ -36,7 +36,7 @@ const productsData = [
     { category: "Watches", name: "Premium Men's Watch", img: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=500&q=80" },
     { category: "Personalized", name: "Custom Photo Frame", img: "https://images.unsplash.com/photo-1545231027-637d2f6210f8?auto=format&fit=crop&w=500&q=80" },
     { category: "Decor", name: "Ceramic Vases", img: "https://images.unsplash.com/photo-1615529162924-f8605388461d?auto=format&fit=crop&w=500&q=80" },
-    { category: "Toys", name: "Plush Bunny", img: "https://images.unsplash.com/photo-1534136691772-2051676edb05?auto=format&fit=crop&w=500&q=80" },
+    { category: "Toys", name: "Plush Bunny", img: "https://images.unsplash.com/photo-1676617725486-28b8debed187?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
     { category: "Watches", name: "Elegant Women's Watch", img: "https://images.unsplash.com/photo-1508656911762-b90391d4ff1f?auto=format&fit=crop&w=500&q=80" },
     { category: "Personalized", name: "Engraved Wooden Pen", img: "https://images.unsplash.com/photo-1585336261022-680e295ce3fe?auto=format&fit=crop&w=500&q=80" },
     { category: "Decor", name: "Table Lamp", img: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=500&q=80" },
