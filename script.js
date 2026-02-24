@@ -37,7 +37,7 @@ const productsData = [
     { category: "Personalized", name: "Custom Photo Frame", img: "https://images.unsplash.com/photo-1545231027-637d2f6210f8?auto=format&fit=crop&w=500&q=80" },
     { category: "Decor", name: "Ceramic Vases", img: "https://images.unsplash.com/photo-1615529162924-f8605388461d?auto=format&fit=crop&w=500&q=80" },
     { category: "Toys", name: "Plush Bunny", img: "https://images.unsplash.com/photo-1676617725486-28b8debed187?q=80&w=687?auto=format&fit=crop&w=500&q=80" },
-    { category: "Watches", name: "Elegant Women's Watch", img: "https://images.unsplash.com/photo-1768062251754-8a56c9fe938c?auto=format&fit=crop&w=500&q=80" },
+    { category: "Watches", name: "Elegant Women's Watch", img: "https://images.unsplash.com/photo-1653651460770-73513a4b25a5?auto=format&fit=crop&w=500&q=80" },
     { category: "Personalized", name: "Engraved Wooden Pen", img: "https://images.unsplash.com/photo-1585336261022-680e295ce3fe?auto=format&fit=crop&w=500&q=80" },
     { category: "Decor", name: "Table Lamp", img: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=500&q=80" },
     { category: "Toys", name: "Educational Puzzle", img: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=500&q=80" },
