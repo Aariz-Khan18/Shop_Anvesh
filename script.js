@@ -189,4 +189,4 @@ window.onload = () => {
 
     document.querySelectorAll('.hidden-scroll').forEach((el) => scrollObserver.observe(el));
 };
-                             
+        
